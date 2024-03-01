@@ -7,13 +7,17 @@ CREATE TABLE departments(
 -- dept_emp table 
 Create Table dept_emp(
     emp_no Integer Not Null,
-    dept_no VARCHAR(9) Not null
+    dept_no VARCHAR(10) Not null
+	foreign key (emp_no) references employees (emp_no),
+    foreign key (dept_no) references departments (dept_no)
 );
 
 -- dept_manager table 
 Create Table dept_manager(
      dept_no Varchar Not Null,
-     emp_no INT Not null
+     emp_no INT Not null,
+	foreign key (emp_no) references employees (emp_no),
+    foreign key (dept_no) references departments (dept_no)
 );
 
 -- Create employees table
@@ -36,7 +40,8 @@ create table salaries (
 -- Create titles table
 create table titles (
 	title_id Varchar PRIMARY KEY NOT NULL,
-	title VARCHAR(35) NOT NULl
+	title VARCHAR(35) NOT NULl,
+	foreign key (emp_no) refrences employees (emp_no)
 );
 
 -- check the table 
